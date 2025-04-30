@@ -1,0 +1,80 @@
+.Securmsg{
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.msg-password{
+    width: 50%;
+    height: auto;
+    /* background-color: white; */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+.msg-password h1{
+    font-size: 28px;
+}
+.msg-password-container{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.msg-password-container input{
+    width: 48%;
+    box-sizing: border-box;
+    padding: 14px 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #efefef;
+    outline: none;
+    font-size: 14px;
+}
+.msg-password-container button{
+    width: 48%;
+    box-sizing: border-box;
+    padding: 14px 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #151515;
+    outline: none;
+    font-size: 14px;
+    color: white;
+}
+.msg{
+    width: 50%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.msg h1{
+    font-size: 28px;
+    color: #151515;
+}
+.msg p{
+    font-size: 14px;
+    color: #151515;
+}
+.msg button{
+    width: 48%;
+    box-sizing: border-box;
+    padding: 14px 14px;
+    border-radius: 8px;
+    border: none;
+    background-color: #151515;
+    outline: none;
+    font-size: 14px;
+    color: white;
+}
