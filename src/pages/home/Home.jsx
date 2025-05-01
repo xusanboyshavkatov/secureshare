@@ -1,6 +1,7 @@
 import { useState, React } from 'react';
 import { supabase } from '../../../supabaseClient';
 import './home.css'
+import CryptoJS from 'crypto-js';
 
 const Home = () => {
 
@@ -21,13 +22,15 @@ const Home = () => {
     const handleSubmit = async () => {
         const newToken = generateToken()
         setToken(newToken)
+
+        const encryptedMsg = CryptoJS.AES.encrypt(message, password).toString();
+
         const { data, error } = await supabase
             .from("msg")
             .insert([
                 {
                     token: newToken,
-                    password: password,
-                    msg: message,
+                    msg: encryptedMsg,
                 },
             ]);
 
@@ -40,6 +43,8 @@ const Home = () => {
             console.log("barchasi ishladi");
             console.log(token);
             console.log(newToken);
+            console.log(encryptedMsg);
+            
         }
     };
 

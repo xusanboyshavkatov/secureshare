@@ -2,6 +2,7 @@ import { React, useState, useEffect } from 'react'
 import './securemsg.css'
 import { useParams } from 'react-router-dom';
 import { supabase } from '../../../supabaseClient';
+import CryptoJS from 'crypto-js';
 
 const Securmsg = () => {
 
@@ -18,7 +19,7 @@ const Securmsg = () => {
             setLoading(true);
             const { data, error } = await supabase
                 .from("msg")
-                .select("msg, password")
+                .select("msg")
                 .eq("token", token)
                 .single();
 
@@ -29,7 +30,6 @@ const Securmsg = () => {
             }
 
             setMessage(data.msg);
-            setCorrectPassword(data.password);
             setLoading(false);
         };
 
@@ -37,7 +37,10 @@ const Securmsg = () => {
     }, [token]);
 
     const handleCheckPassword = async () => {
-        if (password === correctPassword) {
+        const bytes = CryptoJS.AES.decrypt(message, password);
+        const decryptedMSg = bytes.toString(CryptoJS.enc.Utf8);
+        if (decryptedMSg) {
+            setMessage(decryptedMSg)
             setShowMessage(true);
             setError("");
 
