@@ -70,7 +70,7 @@ const Securmsg = () => {
     };
 
 
-    const copymsg = async () =>{
+    const copymsg = async () => {
         await navigator.clipboard.writeText(message)
         await alert("xabar muofaqiyatli nusxalandi")
     }
@@ -78,7 +78,7 @@ const Securmsg = () => {
     const Msgpassword = () => {
         return (
             <div className="msg-password">
-<h1>{error ? error : "Maxfiy xabar parollangan"}</h1>
+                <h1>{error ? error : "Maxfiy xabar parollangan"}</h1>
                 <div className="msg-password-container">
                     <input
                         type="password"
